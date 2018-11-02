@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--支付宝支付之电脑网站支付
+    1. Java服务端在调起支付宝电脑网站支付API成功响应后
+    2. 将body（html片段）放入httpServletResponse 输出至前端，由支付宝调起并展示网页版收银台
+    3. 用户使用支付宝APP扫码支付即可
+
+    特别说明：支付宝支付建议配置好沙箱环境，使用沙箱账号以及沙箱版支付宝进行支付测试！！！
+-->
+
+<form name="punchout_form" method="post"
+      action="https://openapi.alipaydev.com/gateway.do?charset=UTF-8&method=alipay.trade.page.pay&sign=CK%2FmsSYo4iWcmSXjY133eZvPCs9dGYVnK6JDfCYsMXuddNy1d5ScnaAhVuQIISA5hcGQgFrtsAXpCDIsPkcNwj6UQLgqnfW3qF8h0zTD7m49CcdenSIToQ3CIrbRQKC0t6znjJiTe5yFMt8MUgETJ81v9N8TJYQ4j39uxf48oHHpBjCz02%2FGCdC5GKy2oUPVbn2mns9XaNxhq%2Fan8t3UGGWUiZU%2FgdBETWb0B88EfpseYqe046W4JesyI%2FuL%2BQaHB%2B56uLgBbGyBW5WHCwY6BuTeomb6UPMkKrfz4CQqF6tqDPHwss5J0VeEEFC9ipVBOkRE7quvIcEDNQ%2BiODCZoA%3D%3D&version=1.0&app_id=2016092000552911&sign_type=RSA2&timestamp=2018-11-02+10%3A47%3A12&alipay_sdk=alipay-sdk-java-3.3.49.ALL&format=JSON">
+    <input type="hidden" name="biz_content"
+           value="{&quot;out_trade_no&quot;:&quot;20160320010101001&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;total_amount&quot;:4888,&quot;subject&quot;:&quot;Iphone6 16G&quot;,&quot;body&quot;:&quot;Iphone6 16G&quot;}">
+    <input type="submit" value="立即支付" style="display:none">
+</form>
+<script>document.forms[0].submit();</script>
+
+</body>
+</html>
