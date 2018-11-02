@@ -5,6 +5,7 @@ import com.alipay.api.response.AlipayTradePagePayResponse;
 import com.example.alipay.service.alipay.page.AliPagePayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -47,8 +48,9 @@ public class AliPagePayController {
      * @param response
      * @return
      */
-    @GetMapping("/sync/notify")
-    public String aliPagePaySyncNotify(HttpServletRequest request, HttpServletResponse response) {
+    @PostMapping("/sync/notify")
+    public String aliPagePaySyncNotify(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, AlipayApiException {
 
         return aliPagePayService.receiveSyncNotify(request, response);
     }

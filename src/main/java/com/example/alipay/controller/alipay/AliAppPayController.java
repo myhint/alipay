@@ -4,8 +4,8 @@ import com.alipay.api.AlipayApiException;
 import com.example.alipay.service.alipay.app.AliAppPayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +37,7 @@ public class AliAppPayController {
     /**
      * APP支付之异步通知
      */
-    @RequestMapping(value = "/notify", method = RequestMethod.POST)
+    @PostMapping("/notify")
     public String aliAppPaySyncNotify(HttpServletRequest request, HttpServletResponse response)
             throws AlipayApiException {
 
