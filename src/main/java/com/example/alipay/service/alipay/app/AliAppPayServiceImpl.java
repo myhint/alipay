@@ -81,7 +81,8 @@ public class AliAppPayServiceImpl implements AliAppPayService {
      * @throws AlipayApiException
      */
     @Override
-    public String receiveSyncNotify(HttpServletRequest request, HttpServletResponse response) throws AlipayApiException {
+    public String receiveSyncNotify(HttpServletRequest request, HttpServletResponse response)
+            throws AlipayApiException {
 
         //获取支付宝POST过来反馈信息
         Map<String, String> params = new HashMap<>();
@@ -103,7 +104,8 @@ public class AliAppPayServiceImpl implements AliAppPayService {
         //切记alipaypublickey是支付宝的公钥，请去open.alipay.com对应应用下查看。
         //boolean AlipaySignature.rsaCheckV1(Map<String, String> params, String publicKey, String charset, String sign_type)
 
-        boolean flag = AlipaySignature.rsaCheckV1(params, aliPayConfig.getPublicKey(), aliPayConfig.getCharset(), aliPayConfig.getSignType());
+        boolean flag = AlipaySignature.rsaCheckV1(params, aliPayConfig.getPublicKey(), aliPayConfig.getCharset(),
+                aliPayConfig.getSignType());
 
         //4.对验签进行处理
         if (flag) {//验签通过
